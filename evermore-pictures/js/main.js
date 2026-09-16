@@ -351,8 +351,8 @@ function initBookingForm() {
     ].filter(Boolean);
 
     const fullMessage = encodeURIComponent(textLines.join('\n'));
-    // Demo WhatsApp Number (Can be customized by user in config)
-    const waNumber = '919876543210'; 
+    // WhatsApp Number
+    const waNumber = '919846417079'; 
     const whatsappUrl = `https://wa.me/${waNumber}?text=${fullMessage}`;
 
     // Show Toast Notification
