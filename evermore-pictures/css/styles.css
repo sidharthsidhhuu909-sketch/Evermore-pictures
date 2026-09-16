@@ -1,0 +1,440 @@
+/* ==========================================================================
+   EVERMORE PICTURES — LUXURY WEDDING CINEMATOGRAPHY & POST-PRODUCTION
+   Theme Stylesheet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --bg-primary: #0a0a0c;
+  --bg-surface: #111115;
+  --bg-card: #16161c;
+  --bg-card-hover: #1d1d24;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(212, 175, 55, 0.3);
+  --gold-primary: #d4af37;
+  --gold-light: #f5df88;
+  --gold-dark: #997c1e;
+  --gold-muted: #c5a880;
+  --text-main: #f4f4f6;
+  --text-muted: #9e9ea7;
+  --text-faint: #63636e;
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fff2b2 0%, #d4af37 50%, #aa820a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-subtle {
+  color: var(--gold-muted);
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background: rgba(10, 10, 12, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.glass-card {
+  background: rgba(22, 22, 28, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(212, 175, 55, 0.08);
+}
+
+/* Buttons */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #09090b;
+  font-weight: 600;
+  padding: 0.85rem 1.85rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.25);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #f5df88 0%, #d4af37 100%);
+  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45);
+  transform: translateY(-2px);
+  color: #000;
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #e5d39c;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  font-weight: 500;
+  padding: 0.85rem 1.85rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--gold-primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Luxury Glow Badges */
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.1);
+  color: #d4af37;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+/* ==========================================================================
+   Before / After Comparison Slider
+   ========================================================================== */
+.before-after-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 580px;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid var(--border-subtle);
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.comparison-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.comparison-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.comparison-after {
+  z-index: 1;
+}
+
+.comparison-before {
+  z-index: 2;
+  width: 50%; /* controlled dynamically via JS */
+  border-right: 2px solid #d4af37;
+  box-shadow: 4px 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.comparison-before img {
+  width: 100%;
+  max-width: none;
+  /* dynamically matched to container width */
+}
+
+/* Slider Handle */
+.slider-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  bottom: 0;
+  width: 2px;
+  background-color: #d4af37;
+  z-index: 10;
+  cursor: ew-resize;
+  transform: translateX(-50%);
+  pointer-events: none; /* Mouse handled by container */
+}
+
+.slider-handle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #111115;
+  border: 2px solid #d4af37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 4px 10px rgba(0,0,0,0.5);
+  color: #d4af37;
+  font-size: 14px;
+}
+
+.slider-label {
+  position: absolute;
+  bottom: 1.25rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.label-before {
+  left: 1.25rem;
+  background: rgba(10, 10, 12, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ccc;
+}
+
+.label-after {
+  right: 1.25rem;
+  background: rgba(212, 175, 55, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #000;
+}
+
+/* ==========================================================================
+   Portfolio Grid & Filter
+   ========================================================================== */
+.portfolio-filter-btn {
+  padding: 0.6rem 1.4rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  border-radius: 9999px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.portfolio-filter-btn:hover {
+  color: #fff;
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.portfolio-filter-btn.active {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+  font-weight: 600;
+}
+
+.portfolio-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--bg-card);
+  transition: var(--transition-smooth);
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.06);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 9, 11, 0.92) 0%, rgba(9, 9, 11, 0.3) 50%, transparent 100%);
+  opacity: 0;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.75rem;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Modals (Lightbox & Video Player)
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 7, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 1.5rem;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content-wrapper {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.open .modal-content-wrapper {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-subtle);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.modal-close-btn:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* ==========================================================================
+   Pricing Cards
+   ========================================================================== */
+.pricing-card.featured {
+  border: 1.5px solid var(--gold-primary);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.18), 0 20px 40px rgba(0, 0, 0, 0.6);
+  transform: scale(1.03);
+}
+
+@media (max-width: 1024px) {
+  .pricing-card.featured {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Toast Notification
+   ========================================================================== */
+.toast-notice {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #15151b;
+  border: 1px solid var(--gold-primary);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.2);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transform: translateY(120%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-notice.show {
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252530;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
